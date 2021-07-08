@@ -1,9 +1,17 @@
 import React from 'react';
+import { ipcRenderer } from 'electron';
+import DashboardContainer from "./containers/DashboardContainer/DashboardContainer";
 
 export default function App () {
+
+    const sendNotification = () => {
+        console.log("send notification => < >");
+       ipcRenderer.send('notify' , "hello iskander")
+    }
+
     return(
-        <h1>
-            hello Iskander ♥-♥-♥
-        </h1>
+        <div className='App'>
+            <DashboardContainer/>
+        </div>
     );
 }
